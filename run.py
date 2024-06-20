@@ -11,3 +11,9 @@ def get_random_word():
     """
     words = ['python', 'hangman', 'challenge', 'programming', 'openai']
     return random.choice(words)
+
+def display_word(word, guessed_letters):
+    """
+    Display the current state of the word with guessed letters.
+    """
+    return ' '.join([letter if letter in guessed_letters else '_' for letter in word])
