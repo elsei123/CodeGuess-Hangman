@@ -32,4 +32,5 @@ def play_game():
 
     while attempts > 0 and set(word) != guessed_letters:
         print(f"word: {display_word(word, guessed_letters)}")
-
+        print(f"attempts left: {attempts}")
+        guess = input("guess a letter: ").lower()
