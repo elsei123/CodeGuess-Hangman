@@ -28,3 +28,5 @@ def play_game():
     guessed_letters = set()
     attempts = 6
     
+    print("welcom to hangman!")
+
