@@ -28,5 +28,8 @@ def play_game():
     guessed_letters = set()
     attempts = 6
     
-    print("welcom to hangman!")
+    print("welcome to hangman!")
+
+    while attempts > 0 and set(word) != guessed_letters:
+        print(f"word: {display_word(word, guessed_letters)}")
 
