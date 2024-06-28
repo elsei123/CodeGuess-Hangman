@@ -34,3 +34,7 @@ def play_game():
         print(f"word: {display_word(word, guessed_letters)}")
         print(f"attempts left: {attempts}")
         guess = input("guess a letter: ").lower()
+
+        if guess in guessed_letters:
+            print("you already guessed that letter.")
+        
