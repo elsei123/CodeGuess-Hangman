@@ -49,3 +49,6 @@ def play_game():
     else:
         print(f"Game over! the word was: {word}")
 
+if __name__ == "__main__":
+    play_game()
+
