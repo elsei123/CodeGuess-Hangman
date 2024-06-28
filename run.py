@@ -44,3 +44,8 @@ def play_game():
             attempts -= 1
             print("incorrect!")
 
+    if set (word) == guessed_letters:
+        print(f"congratulations! you guessed the word: {word}")
+    else:
+        print(f"Game over! the word was: {word}")
+
