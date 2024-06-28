@@ -37,4 +37,10 @@ def play_game():
 
         if guess in guessed_letters:
             print("you already guessed that letter.")
-        
+        if guess in word:
+            guessed_letters.add(guess)
+            print("correct!")
+        else:
+            attempts -= 1
+            print("incorrect!")
+
