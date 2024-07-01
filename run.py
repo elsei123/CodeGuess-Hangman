@@ -40,21 +40,24 @@ def display_word(word, guessed_letters):
     Args:
         word (str): The word to be guessed.
         guessed_letters (set): The set of letters that have been guessed correctly.
-    
     Returns:
         str: The current state of the word with guessed letters and underscores for unguessed letters.
     """
-   # Return the word with guessed letters and underscores for unguessed letters
+    # Return the word with guessed letters and underscores for unguessed letters
     return ' '.join([letter if letter in guessed_letters else '_' for letter in word])
 
-def display_word(word, guessed_letters):
+def provide_hint(hint):
     """
-    Display the current state of the word with guessed letters.
+    Provide a hint for the word.
     
     Args:
-        word (str): The word to be guessed.
-        guessed_letters (set): The set of letters that have been guessed correctly.
-
+        hint (str): The hint associated with the word.
+    
+    Returns:
+        str: The hint for the word.
+    """
+    # Return the hint associated with the word
+    return hint
 
 def play_game():
     """
