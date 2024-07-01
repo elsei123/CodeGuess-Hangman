@@ -12,7 +12,11 @@ def get_random_word():
     Returns:
         str: A randomly selected word from the predefined list.
     """
-    words = ['python', 'hangman', 'challenge', 'programming', 'openai']
+    words = [
+        'python', 'hangman', 'challenge', 'programming', 'openai',
+        'algorithm', 'variable', 'function', 'debugging', 'syntax',
+        'compiler', 'loop', 'conditional', 'recursion', 'array'
+    ]
     return random.choice(words)
 
 def display_word(word, guessed_letters):
