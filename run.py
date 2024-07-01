@@ -7,17 +7,31 @@ import random
 
 def get_random_word():
     """
-    Get a random word from a predefined list.
+    Get a random word and its hint from a predefined list.
     
     Returns:
-        str: A randomly selected word from the predefined list.
+        tuple: A tuple containing a randomly selected word and its hint.
     """
-    words = [
-        'python', 'hangman', 'challenge', 'programming', 'openai',
-        'algorithm', 'variable', 'function', 'debugging', 'syntax',
-        'compiler', 'loop', 'conditional', 'recursion', 'array'
+    # List of words and associated hints
+    words_with_hints = [
+        ('python', 'A popular programming language.'),
+        ('hangman', 'A classic word-guessing game.'),
+        ('challenge', 'Something that tests your abilities.'),
+        ('programming', 'The process of writing computer code.'),
+        ('openai', 'The organization that developed this model.'),
+        ('algorithm', 'A step-by-step procedure for solving a problem.'),
+        ('variable', 'A storage location identified by a memory address.'),
+        ('function', 'A block of code that performs a specific task.'),
+        ('debugging', 'The process of identifying and removing errors.'),
+        ('syntax', 'The set of rules that defines the combinations of symbols.'),
+        ('compiler', 'A program that translates code from high-level to machine language.'),
+        ('loop', 'A sequence of instructions that is continually repeated.'),
+        ('conditional', 'Statements that only run when a certain condition is true.'),
+        ('recursion', 'When a function calls itself.'),
+        ('array', 'A collection of items stored at contiguous memory locations.')
     ]
-    return random.choice(words)
+    # Randomly choose a word and its hint
+    return random.choice(words_with_hints)
 
 def display_word(word, guessed_letters):
     """
