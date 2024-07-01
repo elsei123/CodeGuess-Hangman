@@ -18,6 +18,13 @@ def get_random_word():
 def display_word(word, guessed_letters):
     """
     Display the current state of the word with guessed letters.
+    
+    Args:
+        word (str): The word to be guessed.
+        guessed_letters (set): The set of letters that have been guessed correctly.
+    
+    Returns:
+        str: The current state of the word with guessed letters and underscores for unguessed letters.
     """
     return ' '.join([letter if letter in guessed_letters else '_' for letter in word])
 
