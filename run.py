@@ -59,6 +59,28 @@ def provide_hint(hint):
     # Return the hint associated with the word
     return hint
 
+def get_valid_guess(guessed_letters):
+    """
+    Prompt the user for a valid letter guess.
+    
+    Args:
+        guessed_letters (set): The set of letters that have been guessed correctly.
+    
+    Returns:
+        str: A valid letter guess from the user.
+    """
+    while True:
+        # Prompt the player for a letter
+        guess = input("Guess a letter: ").lower()
+        # Ensure the input is a single alphabetic character
+        if not guess.isalpha() or len(guess) != 1:
+            print("Invalid input. Please guess a single letter.")
+        # Check if the letter has already been guessed
+        elif guess in guessed_letters:
+            print("You already guessed that letter.")
+        else:
+            return guess
+
 def play_game():
     """
     Main function to play the game.
