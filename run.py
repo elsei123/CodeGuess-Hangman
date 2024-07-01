@@ -40,6 +40,7 @@ def display_word(word, guessed_letters):
     Args:
         word (str): The word to be guessed.
         guessed_letters (set): The set of letters that have been guessed correctly.
+    
     Returns:
         str: The current state of the word with guessed letters and underscores for unguessed letters.
     """
@@ -83,32 +84,42 @@ def get_valid_guess(guessed_letters):
 
 def play_game():
     """
-    Main function to play the game.
+    Main function to play the Hangman game.
     """
-    word = get_random_word()
-    guessed_letters = set()
-    attempts = 6
-
+    # Welcome message and game introduction
     print("Welcome to Hangman!")
+    player_name = input("Please enter your name: ")
+    print(f"\nHello, {player_name}! Let's play Hangman.")
+    print("You need to guess the word, one letter at a time.")
+    print("If you guess incorrectly, you'll get a hint about the word.\n")
 
+    # Get a random word and its hint
+    word, hint = get_random_word()
+    guessed_letters = set()  # Set of correctly guessed letters
+    attempts = 6  # Number of allowed incorrect guesses
+
+    # Game loop: continue until the player runs out of attempts or guesses the word
     while attempts > 0 and set(word) != guessed_letters:
-        print(f"Word: {display_word(word, guessed_letters)}")
+        # Show the current state of the word and the number of attempts left
+        print(f"\nWord: {display_word(word, guessed_letters)}")
         print(f"Attempts left: {attempts}")
-        guess = input("Guess a letter: ").lower()
 
-        if guess in guessed_letters:
-            print("You already guessed that letter.")
-        elif guess in word:
-            guessed_letters.add(guess)
+        # Get a valid guess from the player
+        guess = get_valid_guess(guessed_letters)
+
+        # Check if the guess is correct
+        if guess in word:
+            guessed_letters.add(guess)  # Add the correct letter to the set
             print("Correct!")
         else:
-            attempts -= 1
-            print("Incorrect!")
+            attempts -= 1  # Deduct an attempt for incorrect guess
+            print(f"Incorrect! Here's a hint: {provide_hint(hint)}")
 
+    # Check if the player has guessed the word or not
     if set(word) == guessed_letters:
-        print(f"Congratulations! You guessed the word: {word}")
+        print(f"\nCongratulations, {player_name}! You guessed the word: {word}")
     else:
-        print(f"Game over! The word was: {word}")
+        print(f"\nGame over, {player_name}! The word was: {word}")
 
 if __name__ == "__main__":
-    play_game()
+    play_game()  # Start the game if this script is run directly
