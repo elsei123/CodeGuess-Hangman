@@ -12,11 +12,11 @@ The game is ideal for programming students, developers, and tech enthusiasts loo
 
 
 ## Technologies Used
-- __Python:__ Primary language used to develop the game, chosen for its simplicity and versatility.
+- __Python:__ Primary language used to develop the game.
 
-- __Heroku:__ Platform used to deploy the game, making it easily accessible and executable online.
+- __Heroku:__ Platform used to deploy the game.
 
-- __Code Institute's Simulated Terminal:__ Environment where the game runs, providing a realistic and interactive terminal experience.
+- __Code Institute's Simulated Terminal:__ Environment where the game runs.
 
 ## How to Play
 
