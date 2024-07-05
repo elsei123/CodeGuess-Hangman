@@ -104,8 +104,8 @@ The project has been rigorously tested to ensure a smooth gameplay experience wi
 - __No Known Bugs:__ Currently, there are no known bugs in the game.
 
 ## Validator Testing
-- __PEP8__
--- No erros were returned from [PEP8](https://pep8ci.herokuapp.com/)
+__PEP8__
+- No erros were returned from [PEP8](https://pep8ci.herokuapp.com/)
   
 ## Deployment
 
