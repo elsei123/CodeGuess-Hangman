@@ -1,18 +1,19 @@
 """
 Project: CodeGuess Hangman
-Description: A word guessing game where the user tries to guess the secret word letter by letter
+Description: A word guessing game where the user tries to guess the secret
+word letter by letter.
 """
 
 import random
 
+
 def get_random_word():
     """
     Get a random word and its hint from a predefined list.
-    
+
     Returns:
         tuple: A tuple containing a randomly selected word and its hint.
     """
-    # List of words and associated hints
     words_with_hints = [
         ('python', 'A popular programming language.'),
         ('hangman', 'A classic word-guessing game.'),
@@ -23,103 +24,101 @@ def get_random_word():
         ('variable', 'A storage location identified by a memory address.'),
         ('function', 'A block of code that performs a specific task.'),
         ('debugging', 'The process of identifying and removing errors.'),
-        ('syntax', 'The set of rules that defines the combinations of symbols.'),
-        ('compiler', 'A program that translates code from high-level to machine language.'),
+        ('syntax', 'The set of rules that defines combinations of symbols.'),
+        ('compiler', 'Translates code from high-level to machine language.'),
         ('loop', 'A sequence of instructions that is continually repeated.'),
-        ('conditional', 'Statements that only run when a certain condition is true.'),
+        ('conditional', 'Statements that run when a condition is true.'),
         ('recursion', 'When a function calls itself.'),
-        ('array', 'A collection of items stored at contiguous memory locations.')
+        ('array', 'A collection of items stored at contiguous locations.')
     ]
-    # Randomly choose a word and its hint
     return random.choice(words_with_hints)
+
 
 def display_word(word, guessed_letters):
     """
     Display the current state of the word with guessed letters.
-    
+
     Args:
         word (str): The word to be guessed.
-        guessed_letters (set): The set of letters that have been guessed correctly.
-    
+        guessed_letters (set): The set of letters that have been guessed
+        correctly.
+
     Returns:
-        str: The current state of the word with guessed letters and underscores for unguessed letters.
+        str: The current state of the word with guessed letters and
+        underscores for unguessed letters.
     """
-    # Return the word with guessed letters and underscores for unguessed letters
-    return ' '.join([letter if letter in guessed_letters else '_' for letter in word])
+    return ' '.join(
+        [letter if letter in guessed_letters else '_' for letter in word]
+    )
+
 
 def provide_hint(hint):
     """
     Provide a hint for the word.
-    
+
     Args:
         hint (str): The hint associated with the word.
-    
+
     Returns:
         str: The hint for the word.
     """
-    # Return the hint associated with the word
     return hint
+
 
 def get_valid_guess(guessed_letters):
     """
     Prompt the user for a valid letter guess.
-    
+
     Args:
-        guessed_letters (set): The set of letters that have been guessed correctly.
-    
+        guessed_letters (set): The set of letters that have been guessed
+        correctly.
+
     Returns:
         str: A valid letter guess from the user.
     """
     while True:
-        # Prompt the player for a letter
         guess = input("Guess a letter: ").lower()
-        # Ensure the input is a single alphabetic character
         if not guess.isalpha() or len(guess) != 1:
             print("Invalid input. Please guess a single letter.")
-        # Check if the letter has already been guessed
         elif guess in guessed_letters:
             print("You already guessed that letter.")
         else:
             return guess
 
+
 def play_game():
     """
     Main function to play the Hangman game.
     """
-    # Welcome message and game introduction
     print("Welcome to Hangman!")
     player_name = input("Please enter your name: ")
     print(f"\nHello, {player_name}! Let's play Hangman.")
     print("You need to guess the word, one letter at a time.")
     print("If you guess incorrectly, you'll get a hint about the word.\n")
 
-    # Get a random word and its hint
     word, hint = get_random_word()
-    guessed_letters = set()  # Set of correctly guessed letters
-    attempts = 6  # Number of allowed incorrect guesses
+    guessed_letters = set()
+    attempts = 6
 
-    # Game loop: continue until the player runs out of attempts or guesses the word
     while attempts > 0 and set(word) != guessed_letters:
-        # Show the current state of the word and the number of attempts left
         print(f"\nWord: {display_word(word, guessed_letters)}")
         print(f"Attempts left: {attempts}")
 
-        # Get a valid guess from the player
         guess = get_valid_guess(guessed_letters)
 
-        # Check if the guess is correct
         if guess in word:
-            guessed_letters.add(guess)  # Add the correct letter to the set
+            guessed_letters.add(guess)
             print("Correct!")
         else:
-            attempts -= 1  # Deduct an attempt for incorrect guess
+            attempts -= 1
             print(f"Incorrect! Here's a hint: {provide_hint(hint)}")
 
-    # Check if the player has guessed the word or not
     if set(word) == guessed_letters:
-        print(f"\nCongratulations, {player_name}! You guessed the word: {word}")
+        print(f"\nCongratulations, {player_name}! You guessed the word: "
+              f"{word}")
     else:
         print(f"\nGame over, {player_name}! The word was: {word}")
 
+
 if __name__ == "__main__":
-    play_game()  # Start the game if this script is run directly
+    play_game()
